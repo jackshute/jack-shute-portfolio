@@ -146,6 +146,45 @@ em { font-style: italic; }
 .hero__title .line { display: block; }
 .hero__title .line--indent { padding-left: 0.9em; }
 .hero__title em { color: var(--accent); }
+
+/* Name on the left, portrait card on the right */
+.hero__main {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: clamp(32px, 5vw, 80px);
+}
+.hero__main .hero__title { font-size: clamp(88px, 15vw, 230px); }
+.portrait {
+  position: relative;
+  width: clamp(220px, 24vw, 360px);
+  margin: 0 0 clamp(48px, 7vw, 96px);
+}
+/* Soft orange glow spilling out from behind the card */
+.portrait::before {
+  content: "";
+  position: absolute; inset: -35% -40%;
+  z-index: 0;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(249, 88, 49, 0.75), rgba(249, 88, 49, 0.25) 55%, rgba(23, 39, 38, 0) 100%);
+  filter: blur(30px);
+  pointer-events: none;
+}
+.portrait__frame {
+  position: relative;
+  z-index: 1;
+  aspect-ratio: 4 / 5;
+  background: var(--paper);
+  overflow: hidden;
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.45);
+}
+/* Multiply turns the studio white into the site's warm paper tone */
+.portrait__frame img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  mix-blend-mode: multiply;
+  filter: grayscale(1) contrast(1.04);
+}
 .hero__foot {
   display: flex; justify-content: space-between; align-items: flex-end;
   gap: 40px;
@@ -474,6 +513,8 @@ em { font-style: italic; }
   .case__intro { margin-left: 0; }
 }
 @media (max-width: 640px) {
+  .hero__main { grid-template-columns: 1fr; gap: 0; }
+  .portrait { order: -1; width: min(46vw, 200px); margin: 0 0 32px; }
   .nav { padding: 16px var(--gutter); }
   .nav__mark { font-size: 20px; }
   .nav__links { gap: 16px; }
