@@ -513,6 +513,8 @@ em { font-style: italic; }
   .case__intro { margin-left: 0; }
 }
 @media (max-width: 640px) {
+  .hero__sep { display: none; }
+  .hero__co { display: block; padding-left: 18px; margin-top: 6px; } /* aligns under the text, past the orange dot */
   .hero__main { grid-template-columns: 1fr; gap: 0; }
   .portrait { order: -1; width: min(46vw, 200px); margin: 0 0 32px; }
   .nav { padding: 16px var(--gutter); }
