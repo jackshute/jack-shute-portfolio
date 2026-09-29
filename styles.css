@@ -429,6 +429,9 @@ em { font-style: italic; }
   display: grid; grid-template-columns: repeat(4, 1fr);
   border-top: 1px solid var(--line);
 }
+.stats--1 { grid-template-columns: 1fr; }
+.stats--2 { grid-template-columns: repeat(2, 1fr); }
+.stats--3 { grid-template-columns: repeat(3, 1fr); }
 .stats li {
   padding: 28px 20px 0 0;
   display: flex; flex-direction: column; gap: 6px;
@@ -442,6 +445,7 @@ em { font-style: italic; }
   color: var(--accent);
 }
 .stat__label { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.stat__note { font-size: 13px; letter-spacing: 0.12em; color: var(--muted); opacity: 0.75; }
 
 /* ---------- CONTACT ---------- */
 .contact {

@@ -53,11 +53,17 @@
       '</figure>';
   }
 
+  function statsList(list) {
+    if (!list || !list.length) return '';
+    var items = list.map(function (s) {
+      return '<li><span class="stat__num">' + esc(s[0]) + '</span><span class="stat__label">' + esc(s[1]) + '</span>' +
+        (s[2] ? '<span class="stat__note">' + esc(s[2]) + '</span>' : '') + '</li>';
+    }).join('');
+    return '<div class="wrap"><ul class="stats stats--' + Math.min(list.length, 4) + ' reveal">' + items + '</ul></div>';
+  }
+
   function feature(ft) {
     if (!ft) return '';
-    var stats = (ft.stats || []).map(function (s) {
-      return '<li><span class="stat__num">' + esc(s[0]) + '</span><span class="stat__label">' + esc(s[1]) + '</span></li>';
-    }).join('');
     return '' +
       '<div class="feature">' +
         '<div class="wrap">' +
@@ -68,7 +74,7 @@
           (ft.quote ? '<blockquote class="quote reveal"><p>“' + esc(ft.quote.text) + '”</p><cite>' + esc(ft.quote.by) + '</cite></blockquote>' : '') +
           '<div class="feature__body reveal">' + paras(ft.description) + '</div>' +
         '</div>' +
-        (stats ? '<div class="wrap"><ul class="stats reveal">' + stats + '</ul></div>' : '') +
+        statsList(ft.stats) +
       '</div>';
   }
 
@@ -114,6 +120,7 @@
               films.map(function (f) { return film(f, films.length === 1); }).join('') +
             '</div>' +
           '</div>' : '') +
+        statsList(cs.stats) +
       '</article>';
   });
 

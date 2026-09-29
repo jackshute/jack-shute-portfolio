@@ -19,6 +19,9 @@
                 title, description, quote { text, by }, stats [ [number, label] ], video
    films      List of films: { title, video, description (optional) }
               1 film = full width · 2 = side by side · 3 = row of three · 4 = 2×2 grid
+   stats      (optional) Big orange numbers shown under the films — see Toyota Canada
+              [ ["#1", "Label"], ["38M", "Views"] ]   (up to 4 per row)
+              Add a third item for a small note underneath, e.g. ["#1", "Label", "2026"]
 
    VIDEO LINKS
    Paste the normal Vimeo link, e.g. "https://vimeo.com/143075930".
@@ -41,6 +44,10 @@ window.CASE_STUDIES = [
     ],
     films: [
       { title: "The Showroom — overview film", video: "https://vimeo.com/1230790454" }
+    ],
+    stats: [
+      ["#1", "In Canadian retail sales", "2026"],
+      ["#1", "Most reputable auto brand in Canada"]
     ]
   },
 
