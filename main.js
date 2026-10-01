@@ -13,6 +13,11 @@
     });
   }
 
+  // Escapes text and picks out "Cannes Lion(s)" in gold
+  function lions(s) {
+    return esc(s).replace(/Cannes Lions?/gi, function (m) { return '<span class="gold">' + m + '</span>'; });
+  }
+
   function slug(s) {
     return String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
   }
@@ -46,7 +51,7 @@
           ' allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>' +
         '</div>' +
         '<figcaption>' +
-          '<span class="film__title">' + esc(f.title) + '</span>' +
+          '<span class="film__title">' + lions(f.title) + '</span>' +
           '<a class="film__link" href="' + watch + '" target="_blank" rel="noopener">Vimeo ↗</a>' +
           (f.description ? '<span class="film__desc">' + esc(f.description) + '</span>' : '') +
         '</figcaption>' +
@@ -56,7 +61,7 @@
   function statsList(list) {
     if (!list || !list.length) return '';
     var items = list.map(function (s) {
-      return '<li><span class="stat__num">' + esc(s[0]) + '</span><span class="stat__label">' + esc(s[1]) + '</span>' +
+      return '<li><span class="stat__num">' + esc(s[0]) + '</span><span class="stat__label">' + lions(s[1]) + '</span>' +
         (s[2] ? '<span class="stat__note">' + esc(s[2]) + '</span>' : '') + '</li>';
     }).join('');
     return '<div class="wrap"><ul class="stats stats--' + Math.min(list.length, 4) + ' reveal">' + items + '</ul></div>';

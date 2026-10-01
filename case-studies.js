@@ -58,7 +58,7 @@ window.CASE_STUDIES = [
     films: [
       { title: "iPhone GOAT", video: "https://vimeo.com/1230789083" },
       { title: "Unlimited Ducks", video: "https://vimeo.com/1230790206" },
-      { title: "Cyberbullying — case study", video: "https://vimeo.com/1230790106" },
+      { title: "Cyberbullying — Cannes Lion winner", video: "https://vimeo.com/1230790106" },
       { title: "iPhone Crowd Pleaser", video: "https://vimeo.com/1230789126" }
     ]
   },
@@ -83,7 +83,7 @@ window.CASE_STUDIES = [
       stats: [
         ["38M", "Views"],
         ["1.7B", "Impressions"],
-        ["18", "Awards"],
+        ["18", "International awards"],
         ["3", "Cannes Lions"]
       ],
       video: "https://vimeo.com/143075930"
