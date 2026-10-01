@@ -57,7 +57,7 @@ window.CASE_STUDIES = [
     ],
     films: [
       { title: "iPhone GOAT", video: "https://vimeo.com/1230789083" },
-      { title: "Unlimited Ducks", video: "https://vimeo.com/1230790206" },
+      { title: "Unlimited Data Ducks", video: "https://vimeo.com/1230790206" },
       { title: "Cyberbullying — Cannes Lion winner", video: "https://vimeo.com/1230790106" },
       { title: "iPhone Crowd Pleaser", video: "https://vimeo.com/1230789126" }
     ]
