@@ -16,7 +16,7 @@
   // Escapes text, picks out "Cannes Lion(s)" in gold, and turns \n into a line break
   function lions(s) {
     return esc(s)
-      .replace(/Cannes(\s+)Lions?/gi, function (m) { return '<span class="gold">' + m + '</span>'; })
+      .replace(/Cannes[\s|^]+Lions?/gi, function (m) { return '<span class="gold">' + m + '</span>'; })
       .replace(/\n/g, '<br>');
   }
 

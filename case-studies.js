@@ -76,7 +76,7 @@ window.CASE_STUDIES = [
       ["+70%", "Customer connections^ in a decade", "12.5M → 21.2M"],
       ["$12.1B", "Canada’s most valuable telecom brand", "Brand Finance, 2025"],
       ["Brand |of^ the |Year", "Strategy Magazine", "2021"],
-      ["Cannes\nLion |winner", "Cyberbullying campaign"]
+      ["Cannes |Lion\nwinner", "Cyberbullying campaign"]
     ]
   },
 
