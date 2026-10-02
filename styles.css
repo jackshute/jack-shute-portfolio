@@ -275,10 +275,10 @@ em { font-style: italic; }
   letter-spacing: -0.02em;
 }
 .index__tag { font-size: 14px; color: var(--muted); text-align: right; }
-.index__arrow { text-align: right; transition: transform .35s ease; }
+.index__arrow { text-align: right; transition: transform .35s ease, color .35s ease; }
 .index a:hover { padding-left: 16px; }
 .index a:hover .index__client { color: var(--accent); }
-.index a:hover .index__arrow { transform: translateY(4px); }
+.index a:hover .index__arrow { transform: translateY(4px); color: var(--accent); }
 
 /* ---------- CASE STUDY ---------- */
 .case { padding-top: var(--space); }
