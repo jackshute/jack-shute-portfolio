@@ -212,7 +212,7 @@ em { font-style: italic; }
 .hero__cta:hover svg { background: var(--accent); border-color: var(--accent); transform: translateY(3px); }
 
 /* ---------- ABOUT ---------- */
-.about { padding: clamp(56px, 7vw, 104px) 0 var(--space); }
+.about { padding: clamp(56px, 7vw, 104px) 0 clamp(64px, 9vw, 136px); }
 .about__statement {
   font-family: var(--serif);
   font-weight: 400;
