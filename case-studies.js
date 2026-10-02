@@ -24,6 +24,8 @@
               Add a third item for a small note underneath, e.g. ["#1", "Label", "2026"]
               Words instead of a number (e.g. "Brand of the Year") are set smaller automatically.
               Type \n where you want a line break, e.g. "Brand of\nthe Year".
+              In the big figure only:  |  breaks on phones only,  ^  breaks on larger screens only.
+              e.g. "Brand |of^ the |Year" = "Brand of / the Year" on desktop, "Brand / of the / Year" on phones.
    archivedStats  Same format as stats, but kept HIDDEN on the live site.
               To make them live, rename  archivedStats  to  stats.
               To preview them first, add  ?drafts  to the end of the page address.
@@ -73,8 +75,8 @@ window.CASE_STUDIES = [
     stats: [
       ["+70%", "Customer connections in a decade", "12.5M → 21.2M"],
       ["$12.1B", "Canada’s most valuable telecom brand", "Brand Finance, 2025"],
-      ["Brand of\nthe Year", "Strategy Magazine", "2021"],
-      ["Cannes\nLion winner", "Cyberbullying campaign"]
+      ["Brand |of^ the |Year", "Strategy Magazine", "2021"],
+      ["Cannes\nLion |winner", "Cyberbullying campaign"]
     ]
   },
 

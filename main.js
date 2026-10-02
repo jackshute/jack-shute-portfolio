@@ -20,6 +20,14 @@
       .replace(/\n/g, '<br>');
   }
 
+  // Stat figures can also break lines on one screen size only:
+  //   |  breaks on phones only     ^  breaks on larger screens only
+  function figure(s) {
+    return lions(s)
+      .replace(/\|/g, '<span class="br-phone"></span>')
+      .replace(/\^/g, '<span class="br-wide"></span>');
+  }
+
   function slug(s) {
     return String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
   }
@@ -67,7 +75,7 @@
     if (!list || !list.length) return '';
     var items = list.map(function (s) {
       var wordy = String(s[0]).length > 6; // e.g. "Brand of the Year" — set smaller than a number
-      return '<li><span class="stat__num' + (wordy ? ' stat__num--text' : '') + '">' + lions(s[0]) + '</span>' +
+      return '<li><span class="stat__num' + (wordy ? ' stat__num--text' : '') + '">' + figure(s[0]) + '</span>' +
         '<span class="stat__text"><span class="stat__label">' + lions(s[1]) + '</span>' +
         (s[2] ? '<span class="stat__note">' + esc(s[2]) + '</span>' : '') + '</span></li>';
     }).join('');

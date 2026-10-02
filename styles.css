@@ -460,6 +460,13 @@ em { font-style: italic; }
   text-wrap: balance;
   letter-spacing: -0.02em;
 }
+/* Screen-size-specific line breaks in stat figures ( | and ^ in case-studies.js ) */
+.br-phone { display: none; }
+.br-wide { display: block; }
+@media (max-width: 640px) {
+  .br-phone { display: block; }
+  .br-wide { display: none; }
+}
 /* Marker shown only when previewing archived stats (?drafts) */
 .stats__draft {
   display: inline-block;
