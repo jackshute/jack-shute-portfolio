@@ -76,7 +76,7 @@
     var items = list.map(function (s) {
       var wordy = String(s[0]).length > 6; // e.g. "Brand of the Year" — set smaller than a number
       return '<li><span class="stat__num' + (wordy ? ' stat__num--text' : '') + '">' + figure(s[0]) + '</span>' +
-        '<span class="stat__text"><span class="stat__label">' + lions(s[1]) + '</span>' +
+        '<span class="stat__text"><span class="stat__label">' + figure(s[1]) + '</span>' +
         (s[2] ? '<span class="stat__note">' + esc(s[2]) + '</span>' : '') + '</span></li>';
     }).join('');
     return '<div class="wrap">' +
