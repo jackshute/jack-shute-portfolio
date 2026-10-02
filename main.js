@@ -13,9 +13,11 @@
     });
   }
 
-  // Escapes text and picks out "Cannes Lion(s)" in gold
+  // Escapes text, picks out "Cannes Lion(s)" in gold, and turns \n into a line break
   function lions(s) {
-    return esc(s).replace(/Cannes Lions?/gi, function (m) { return '<span class="gold">' + m + '</span>'; });
+    return esc(s)
+      .replace(/Cannes(\s+)Lions?/gi, function (m) { return '<span class="gold">' + m + '</span>'; })
+      .replace(/\n/g, '<br>');
   }
 
   function slug(s) {
@@ -58,13 +60,20 @@
       '</figure>';
   }
 
-  function statsList(list) {
+  // Add ?drafts to the page address to preview archivedStats
+  var showDrafts = /[?&]drafts\b/.test(location.search);
+
+  function statsList(list, draft) {
     if (!list || !list.length) return '';
     var items = list.map(function (s) {
-      return '<li><span class="stat__num">' + esc(s[0]) + '</span><span class="stat__label">' + lions(s[1]) + '</span>' +
-        (s[2] ? '<span class="stat__note">' + esc(s[2]) + '</span>' : '') + '</li>';
+      var wordy = String(s[0]).length > 6; // e.g. "Brand of the Year" — set smaller than a number
+      return '<li><span class="stat__num' + (wordy ? ' stat__num--text' : '') + '">' + lions(s[0]) + '</span>' +
+        '<span class="stat__text"><span class="stat__label">' + lions(s[1]) + '</span>' +
+        (s[2] ? '<span class="stat__note">' + esc(s[2]) + '</span>' : '') + '</span></li>';
     }).join('');
-    return '<div class="wrap"><ul class="stats stats--' + Math.min(list.length, 4) + ' reveal">' + items + '</ul></div>';
+    return '<div class="wrap">' +
+      (draft ? '<p class="stats__draft">Archived — hidden on the live site</p>' : '') +
+      '<ul class="stats stats--' + Math.min(list.length, 4) + ' reveal">' + items + '</ul></div>';
   }
 
   function feature(ft) {
@@ -125,7 +134,7 @@
               films.map(function (f) { return film(f, films.length === 1); }).join('') +
             '</div>' +
           '</div>' : '') +
-        statsList(cs.stats) +
+        (cs.stats ? statsList(cs.stats) : showDrafts ? statsList(cs.archivedStats, true) : '') +
       '</article>';
   });
 

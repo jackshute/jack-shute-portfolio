@@ -432,10 +432,18 @@ em { font-style: italic; }
 .stats--1 { grid-template-columns: 1fr; }
 .stats--2 { grid-template-columns: repeat(2, 1fr); }
 .stats--3 { grid-template-columns: repeat(3, 1fr); }
+/* Each stat spans 2 shared rows (figure / label+note), so labels line up
+   across a row even when one figure wraps onto two lines */
 .stats li {
   padding: 28px 20px 0 0;
-  display: flex; flex-direction: column; gap: 6px;
+  display: grid;
+  grid-row: span 2;
+  grid-template-rows: subgrid;
+  row-gap: 6px;
+  align-content: start;
 }
+.stat__num { align-self: end; }
+.stat__text { display: flex; flex-direction: column; gap: 6px; }
 .stats li + li { padding-left: 24px; border-left: 1px solid var(--line); }
 .stat__num {
   font-family: var(--serif);
@@ -445,6 +453,22 @@ em { font-style: italic; }
   color: var(--accent);
 }
 .stat__label { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+/* Words instead of a number: set smaller */
+.stat__num--text {
+  font-size: clamp(40px, 4.4vw, 64px);
+  line-height: 1.02;
+  text-wrap: balance;
+  letter-spacing: -0.02em;
+}
+/* Marker shown only when previewing archived stats (?drafts) */
+.stats__draft {
+  display: inline-block;
+  margin: clamp(32px, 4vw, 56px) 0 -16px;
+  padding: 4px 10px;
+  border: 1px dashed var(--muted);
+  font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--muted);
+}
 .gold { color: #8C6A1C; } /* dark gold for "Cannes Lion(s)" */
 .stat__note { font-size: 13px; letter-spacing: 0.12em; color: var(--muted); opacity: 0.75; }
 
