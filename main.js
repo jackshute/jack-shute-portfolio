@@ -127,7 +127,7 @@
               '<span class="eyebrow eyebrow--light">' + esc(cs.role || '') + '</span>' +
             '</header>' +
             '<h3 class="case__title reveal">' + esc(cs.client) +
-              (cs.tagline ? '<em>' + esc(cs.tagline) + '</em>' : '') + '</h3>' +
+              (cs.tagline ? ' <em>' + esc(cs.tagline) + '</em>' : '') + '</h3>' +
           '</div>' +
         '</div>' +
         '<div class="wrap">' +
