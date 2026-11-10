@@ -74,7 +74,7 @@
         '<span class="stat__text"><span class="stat__label">' + figure(s[1]) + '</span>' +
         (s[2] ? '<span class="stat__note">' + esc(s[2]) + '</span>' : '') + '</span></li>';
     }).join('');
-    return '<div class="wrap">' +
+    return '<div class="wrap stats-wrap">' +
       (draft ? '<p class="stats__draft">Archived — hidden on the live site</p>' : '') +
       '<ul class="stats stats--' + Math.min(list.length, 4) + ' reveal">' + items + '</ul></div>';
   }
