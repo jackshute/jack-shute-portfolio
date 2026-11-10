@@ -54,7 +54,7 @@ window.CASE_STUDIES = [
     ],
     archivedStats: [
       ["#1", "In Canadian retail sales", "2026"],
-      ["#1", "Most reputable auto brand in Canada"]
+      ["#1", "Most reputable auto brand^ in Canada"]
     ]
   },
 
