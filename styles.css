@@ -696,3 +696,29 @@ h2.eyebrow { margin: 0; } /* "Selected work" is a real heading but styled as a s
 /* the card edge replaces the outer rules */
 .textured .about__roles dl > div:first-child { border-top: 0; }
 .textured .about__roles dl > div:last-child { border-bottom: 0; }
+
+/* ---- "Selected work" list: faint glow behind it + a glass strip on the hovered row ---- */
+.textured .index { position: relative; isolation: isolate; }
+.textured .index::before {
+  content: ""; position: absolute; z-index: -1; pointer-events: none;
+  left: 15%; right: 5%; top: -10%; bottom: -10%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(249, 88, 49, 0.22), rgba(var(--mint), 0.55) 55%, transparent 100%);
+  filter: blur(40px);
+}
+/* rows get a little inner padding so the strip has room; negative margin keeps text aligned with the page */
+.textured .index a {
+  margin: 0 -18px;
+  padding-left: 18px; padding-right: 18px;
+  border-radius: 16px;
+  border: 1px solid transparent;
+  transition: padding .35s ease, color .35s ease, background-color .35s ease, border-color .35s ease, box-shadow .35s ease;
+}
+.textured .index a:hover {
+  padding-left: 34px;
+  background-color: var(--glass-fill);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  border-color: var(--glass-edge);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55), 0 18px 40px -28px rgba(23, 39, 38, 0.35);
+}
